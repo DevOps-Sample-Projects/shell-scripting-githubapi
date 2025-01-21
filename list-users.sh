@@ -32,7 +32,7 @@ function list_users_of_repo {
 	local endpoint="repos/${ORGNAME}/${REPONAME}/collaborators"
 
 	#fetch list of collaborators of the repo
-	collaborators="$(github_get_api "$endpoint")"
+	collaborators="$(github_get_api "$endpoint" | jq -r '.[] | select(.permissions.admin == true) | .login')"
 
 	#display the lust of collaborators with read access
 	if [[ -z "$collaborators" ]]; then
