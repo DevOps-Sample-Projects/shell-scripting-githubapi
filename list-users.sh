@@ -51,7 +51,7 @@ list_users_of_repo
 
 function helper{
 	expected_args="2"
-	if [ $# $expected_args]; then
+	if [ $# -ne $expected_args]; then
 		echo "please enter orgname and reponame as args"
 	fi
 }
