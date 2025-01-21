@@ -49,7 +49,7 @@ function list_users_of_repo {
 echo "Listening to repo for users with read access"
 list_users_of_repo
 
-fucntion helper{
+function helper{
 	expected_args=2
 	if [ $# $expected_args]; then
 		echo "please enter orgname and reponame as args"
