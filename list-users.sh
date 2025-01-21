@@ -6,6 +6,8 @@
 #Purpose : Shell Script to list the users having access to a repo
 ####################
 #
+
+helper
 #GitHub API url
 APIURL="https://api.github.com"
 
@@ -46,3 +48,10 @@ function list_users_of_repo {
 #Main script
 echo "Listening to repo for users with read access"
 list_users_of_repo
+
+fucntion helper{
+	expected_args=2
+	if [ $# $expected_args]; then
+		echo "please enter orgname and reponame as args"
+	fi
+}
