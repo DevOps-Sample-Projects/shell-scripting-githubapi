@@ -7,7 +7,15 @@
 ####################
 #
 
-helper
+
+function helper {
+        if [ "$#" -ne 2 ]; then
+		echo "No arguments supplied"
+		exit 1
+        fi
+}
+
+helper "$@"
 #GitHub API url
 APIURL="https://api.github.com"
 
@@ -49,9 +57,3 @@ function list_users_of_repo {
 echo "Listening to repo for users with read access"
 list_users_of_repo
 
-function helper {
-	expected_args="2"
-	if [ $# -ne $expected_args]; then
-		echo "please enter orgname and reponame as args"
-	fi
-}
